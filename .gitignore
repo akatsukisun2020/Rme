@@ -17,3 +17,6 @@ temp/
 temp.yaml
 bin
 **/config/config.yaml
+rme
+*config.yaml
+hack/config.yaml

@@ -6,3 +6,8 @@ gfcli:
     build: "-a amd64 -s linux -p temp -ew"
     tagPrefixes:
       - my.image.pub/my-app
+  gen:
+    dao:
+    - link:     "mysql:rme:Qwert&123456@tcp(43.128.46.234:3306)/rme"
+      tables:   "user"
+      jsonCase: "CamelLower"
