@@ -190,3 +190,93 @@ Stack:
 2024-05-18T13:58:00 [DEBU] {905c90aab67fd01738ef0b46479f8a99} user.go:149: 44444444444444
 2024-05-18T13:58:00 [DEBU] {905c90aab67fd01738ef0b46479f8a99} user_v1_verify.go:30: aaaaaaaaaaaa1111aaaaaa
 2024-05-18T13:58:00 [DEBU] {905c90aab67fd01738ef0b46479f8a99} user_v1_verify.go:38: aaaaaaaaaaaaaaaaaa
+2024-05-18T14:40:22 [DEBU] {2020877c0682d017e71fed66c4e96b5b} login_info.go:62: loginInfoRedisClient.Get success, key:rme_logininfo_41fc5a19-df59-4361-8865-65e6d55c721c, info:&{41fc5a19-df59-4361-8865-65e6d55c721c 5f34304f-041f-441e-b327-662b2a29a157 2 8Pn2Pm1k1Ah5eqQJQpcKtw+1xvz4DdNO/2Fp71xzbBzNn6gFyWAdDZzLLiIYVVk+d1ioFRqj+a9s6X6WNpvPiv6pTV+Lxis3Smzzw7c+mPj1zDaDi7QdIbFs+ywkcwiNopmYlH4WuyMASv251QhvISCmj4c2DopHjDfLzwpO9fvrM0lXmE9S82Ieag== 8Pn2Pm1k1Ah5eqQJQpcKtw+1xvz4DdNO/2Fp71xzbBzNn6gFyWAdDZzLLiIYVVk+d1ioFRqj+a9s6X6WNpvPiv6pTV+Lxis3Smzzw7FqyPmlzDCDi7QYK7Bs+3IlIwjV8JuflHoV7HAARKrp2lRsICCmj4c2DopHjDfLlju981PCtuuSBo7mprRGQw== 1716013556 1716047756 }
+2024-05-18T14:40:22 [ERRO] {2020877c0682d017e71fed66c4e96b5b} user.go:266: GenerateToken error, refreshTokener:&{ 5f34304f-041f-441e-b327-662b2a29a157 0 8Pn2Pm1k1Ah5eqQJQpcKtw+1xvz4DdNO/2Fp71xzbBzNn6gFyWAdDZzLLiIYVVk+d1ioFRqj+a9s6X6WNpvPiv6pTV+Lxis3Smzzw7FqyPmlzDCDi7QYK7Bs+3IlIwjV8JuflHoV7HAARKrp2lRsICCmj4c2DopHjDfLlju981PCtuuSBo7mprRGQw== 0}, err:token gen error, userid or user secretid is empty 
+Stack:
+1.  rme/internal/logic/user.(*sUser).RefreshToken
+    /Users/zhenxingsun/Proj/Rme/rme/internal/logic/user/user.go:266
+2.  rme/internal/controller/user.(*ControllerV1).RefreshToken
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_refresh_token.go:19
+
+2024-05-18T14:40:22 [ERRO] {2020877c0682d017e71fed66c4e96b5b} user_v1_refresh_token.go:21: RefreshToken failed, userid:41fc5a19-df59-4361-8865-65e6d55c721c 
+Stack:
+1.  rme/internal/controller/user.(*ControllerV1).RefreshToken
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_refresh_token.go:21
+
+2024-05-18T14:40:51 [ERRO] {d8cc1d390d82d017e81fed66a956acd8} user.go:214: GenerateToken error, accessTokener:&{41fc5a19-df59-4361-8865-65e6d55c721c  0  1716016251}, err:token gen error, userid or user secretid is empty 
+Stack:
+1.  rme/internal/logic/user.(*sUser).Login
+    /Users/zhenxingsun/Proj/Rme/rme/internal/logic/user/user.go:214
+2.  rme/internal/controller/user.(*ControllerV1).Login
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_login.go:17
+
+2024-05-18T14:40:51 [ERRO] {d8cc1d390d82d017e81fed66a956acd8} user.go:224: GenerateToken error, accessTokener:&{41fc5a19-df59-4361-8865-65e6d55c721c  0  1716016251}, err:token gen error, userid or user secretid is empty 
+Stack:
+1.  rme/internal/logic/user.(*sUser).Login
+    /Users/zhenxingsun/Proj/Rme/rme/internal/logic/user/user.go:224
+2.  rme/internal/controller/user.(*ControllerV1).Login
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_login.go:17
+
+2024-05-18T14:40:51 [DEBU] {d8cc1d390d82d017e81fed66a956acd8} login_info.go:38: loginInfoRedisClient.Set success, key:rme_logininfo_41fc5a19-df59-4361-8865-65e6d55c721c
+2024-05-18T14:42:19 [DEBU] {109962b32182d0179ab2d67da63152ca} login_info.go:38: loginInfoRedisClient.Set success, key:rme_logininfo_41fc5a19-df59-4361-8865-65e6d55c721c
+2024-05-18T14:43:29 [DEBU] {58c3c6263282d0179bb2d67d74000016} login_info.go:62: loginInfoRedisClient.Get success, key:rme_logininfo_41fc5a19-df59-4361-8865-65e6d55c721c, info:&{41fc5a19-df59-4361-8865-65e6d55c721c 5f34304f-041f-441e-b327-662b2a29a157 2 8Pn2Pm1k1Ah5eqQJQpcKtw+1xvz4DdNO/2Fp71xzbBzNn6gFyWAdDZzLLiIYVVk+d1ioFRqj+a9s6X6WNpvPiv6pTV+Lxis3Smzzw+c9mPulmWbRi7UbLL5s+y4jJQjVop6YlH8U4XMGSq253FQ4KiCmj4c2DopCijHE7f2/pJFdaT8nWCGa0O+/yQ== 8Pn2Pm1k1Ah5eqQJQpcKtw+1xvz4DdNO/2Fp71xzbBzNn6gFyWAdDZzLLiIYVVk+d1ioFRqj+a9s6X6WNpvPiv6pTV+Lxis3Smzzw7BpmfmkzjGCi+Iefr9s+3lxJwjVp5jLlC9DvCUKGqzrjwVtICCmj4c2DopCijHEQR17ECatFfnDyLOlEjYBWQ== 1716016339 1716050539 }
+2024-05-18T14:43:29 [ERRO] {58c3c6263282d0179bb2d67d74000016} user.go:266: GenerateToken error, refreshTokener:&{ 5f34304f-041f-441e-b327-662b2a29a157 0 8Pn2Pm1k1Ah5eqQJQpcKtw+1xvz4DdNO/2Fp71xzbBzNn6gFyWAdDZzLLiIYVVk+d1ioFRqj+a9s6X6WNpvPiv6pTV+Lxis3Smzzw7BpmfmkzjGCi+Iefr9s+3lxJwjVp5jLlC9DvCUKGqzrjwVtICCmj4c2DopCijHEQR17ECatFfnDyLOlEjYBWQ== 0}, err:token gen error, userid or user secretid is empty 
+Stack:
+1.  rme/internal/logic/user.(*sUser).RefreshToken
+    /Users/zhenxingsun/Proj/Rme/rme/internal/logic/user/user.go:266
+2.  rme/internal/controller/user.(*ControllerV1).RefreshToken
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_refresh_token.go:19
+
+2024-05-18T14:43:29 [ERRO] {58c3c6263282d0179bb2d67d74000016} user_v1_refresh_token.go:21: RefreshToken failed, userid:41fc5a19-df59-4361-8865-65e6d55c721c 
+Stack:
+1.  rme/internal/controller/user.(*ControllerV1).RefreshToken
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_refresh_token.go:21
+
+2024-05-18T14:45:14 [INFO] {089b9a584a82d01741f7a51c3df43ec0} user.go:48: InsertOrUpdateUser success, user:&{363bea77-bc7d-4be0-81f5-27f0aafb748a 0 0   123456111331  37552eb7-69fb-4ffc-9342-0447a29e462e}, res:&{{0x140003b4120 0x1400027e000} 1}
+2024-05-18T14:45:14 [DEBU] {089b9a584a82d01741f7a51c3df43ec0} login_info.go:38: loginInfoRedisClient.Set success, key:rme_logininfo_363bea77-bc7d-4be0-81f5-27f0aafb748a
+2024-05-18T14:46:08 [DEBU] {38442c225782d01742f7a51ce2fdea58} login_info.go:62: loginInfoRedisClient.Get success, key:rme_logininfo_363bea77-bc7d-4be0-81f5-27f0aafb748a, info:&{363bea77-bc7d-4be0-81f5-27f0aafb748a 37552eb7-69fb-4ffc-9342-0447a29e462e 2 JOgm2GQvcZfeWNwmA9pNP2DRRDK+hYqdFle8aqJRseEB+J6BZUKFqETZcO0UPtpB+RskBMolm+5J/RX57yMULRvihjylvokMajFZPT+KFe/F2OC499e8nw404TaScfYA9Zu/Gf7MvOK4UR0bC4Byms7clHYzdc/ejyAm3XhT8O8riJO8SWI1URAuiA== JOgm2GQvcZfeWNwmA9pNP2DRRDK+hYqdFle8aqJRseEB+J6BZUKFqETZcO0UPtpB+RskBMolm+5J/RX57yMULRvihjylvokMajFZPTGCQbzEj+bh99S9k1804WTCKvYA/87pGf7PvO+7A04aX9Vxyc7clHYzdc/ejyAmVg7kz4Pf35ryTWqmwlJfgQ== 1716016514 1716050714 }
+2024-05-18T14:46:08 [ERRO] {38442c225782d01742f7a51ce2fdea58} user.go:266: GenerateToken error, refreshTokener:&{ 37552eb7-69fb-4ffc-9342-0447a29e462e 0 JOgm2GQvcZfeWNwmA9pNP2DRRDK+hYqdFle8aqJRseEB+J6BZUKFqETZcO0UPtpB+RskBMolm+5J/RX57yMULRvihjylvokMajFZPTGCQbzEj+bh99S9k1804WTCKvYA/87pGf7PvO+7A04aX9Vxyc7clHYzdc/ejyAmVg7kz4Pf35ryTWqmwlJfgQ== 0}, err:token gen error, userid or user secretid is empty 
+Stack:
+1.  rme/internal/logic/user.(*sUser).RefreshToken
+    /Users/zhenxingsun/Proj/Rme/rme/internal/logic/user/user.go:266
+2.  rme/internal/controller/user.(*ControllerV1).RefreshToken
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_refresh_token.go:21
+
+2024-05-18T14:46:08 [ERRO] {38442c225782d01742f7a51ce2fdea58} user_v1_refresh_token.go:23: RefreshToken failed, userid:363bea77-bc7d-4be0-81f5-27f0aafb748a 
+Stack:
+1.  rme/internal/controller/user.(*ControllerV1).RefreshToken
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_refresh_token.go:23
+
+2024-05-18T20:07:41 [DEBU] {b08fc310e393d01795733d50c8ecb2f4} login_info.go:62: loginInfoRedisClient.Get success, key:rme_logininfo_363bea77-bc7d-4be0-81f5-27f0aafb748a, info:&{363bea77-bc7d-4be0-81f5-27f0aafb748a 37552eb7-69fb-4ffc-9342-0447a29e462e 2 JOgm2GQvcZfeWNwmA9pNP2DRRDK+hYqdFle8aqJRseEB+J6BZUKFqETZcO0UPtpB+RskBMolm+5J/RX57yMULRvihjylvokMajFZPT+KFe/F2OC499e8nw404TaScfYA9Zu/Gf7MvOK4UR0bC4Byms7clHYzdc/ejyAm3XhT8O8riJO8SWI1URAuiA== JOgm2GQvcZfeWNwmA9pNP2DRRDK+hYqdFle8aqJRseEB+J6BZUKFqETZcO0UPtpB+RskBMolm+5J/RX57yMULRvihjylvokMajFZPTGCQbzEj+bh99S9k1804WTCKvYA/87pGf7PvO+7A04aX9Vxyc7clHYzdc/ejyAmVg7kz4Pf35ryTWqmwlJfgQ== 1716016514 1716050714 }
+2024-05-18T20:07:41 [DEBU] {b08fc310e393d01795733d50c8ecb2f4} token.go:70: qqqqqqqqqqq1
+2024-05-18T20:07:41 [DEBU] {b08fc310e393d01795733d50c8ecb2f4} token.go:77: qqqqqqqqqqq2
+2024-05-18T20:07:41 [DEBU] {b08fc310e393d01795733d50c8ecb2f4} token.go:90: qqqqqqqqqqq3
+2024-05-18T20:07:41 [DEBU] {b08fc310e393d01795733d50c8ecb2f4} token.go:97: qqqqqqqqqqq4
+2024-05-18T20:07:41 [ERRO] {b08fc310e393d01795733d50c8ecb2f4} user.go:271: GenerateToken error, refreshToken is not usable, userid:363bea77-bc7d-4be0-81f5-27f0aafb748a, refreshToken:JOgm2GQvcZfeWNwmA9pNP2DRRDK+hYqdFle8aqJRseEB+J6BZUKFqETZcO0UPtpB+RskBMolm+5J/RX57yMULRvihjylvokMajFZPTGCQbzEj+bh99S9k1804WTCKvYA/87pGf7PvO+7A04aX9Vxyc7clHYzdc/ejyAmVg7kz4Pf35ryTWqmwlJfgQ== 
+Stack:
+1.  rme/internal/logic/user.(*sUser).RefreshToken
+    /Users/zhenxingsun/Proj/Rme/rme/internal/logic/user/user.go:271
+2.  rme/internal/controller/user.(*ControllerV1).RefreshToken
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_refresh_token.go:21
+
+2024-05-18T20:07:41 [INFO] {b08fc310e393d01795733d50c8ecb2f4} user_v1_refresh_token.go:31: RefreshToken failed, need login, userid:363bea77-bc7d-4be0-81f5-27f0aafb748a
+2024-05-18T20:08:13 [DEBU] {b8af9573ea93d01796733d500177762b} login_info.go:62: loginInfoRedisClient.Get success, key:rme_logininfo_363bea77-bc7d-4be0-81f5-27f0aafb748a, info:&{363bea77-bc7d-4be0-81f5-27f0aafb748a 37552eb7-69fb-4ffc-9342-0447a29e462e 2 JOgm2GQvcZfeWNwmA9pNP2DRRDK+hYqdFle8aqJRseEB+J6BZUKFqETZcO0UPtpB+RskBMolm+5J/RX57yMULRvihjylvokMajFZPT+KFe/F2OC499e8nw404TaScfYA9Zu/Gf7MvOK4UR0bC4Byms7clHYzdc/ejyAm3XhT8O8riJO8SWI1URAuiA== JOgm2GQvcZfeWNwmA9pNP2DRRDK+hYqdFle8aqJRseEB+J6BZUKFqETZcO0UPtpB+RskBMolm+5J/RX57yMULRvihjylvokMajFZPTGCQbzEj+bh99S9k1804WTCKvYA/87pGf7PvO+7A04aX9Vxyc7clHYzdc/ejyAmVg7kz4Pf35ryTWqmwlJfgQ== 1716016514 1716050714 }
+2024-05-18T20:08:13 [DEBU] {b8af9573ea93d01796733d500177762b} token.go:70: qqqqqqqqqqq1
+2024-05-18T20:08:13 [DEBU] {b8af9573ea93d01796733d500177762b} token.go:77: qqqqqqqqqqq2
+2024-05-18T20:08:13 [DEBU] {b8af9573ea93d01796733d500177762b} token.go:90: qqqqqqqqqqq3
+2024-05-18T20:08:13 [DEBU] {b8af9573ea93d01796733d500177762b} token.go:97: qqqqqqqqqqq4
+2024-05-18T20:08:13 [ERRO] {b8af9573ea93d01796733d500177762b} user.go:271: GenerateToken error, refreshToken is not usable, userid:363bea77-bc7d-4be0-81f5-27f0aafb748a, refreshToken:JOgm2GQvcZfeWNwmA9pNP2DRRDK+hYqdFle8aqJRseEB+J6BZUKFqETZcO0UPtpB+RskBMolm+5J/RX57yMULRvihjylvokMajFZPTGCQbzEj+bh99S9k1804WTCKvYA/87pGf7PvO+7A04aX9Vxyc7clHYzdc/ejyAmVg7kz4Pf35ryTWqmwlJfgQ== 
+Stack:
+1.  rme/internal/logic/user.(*sUser).RefreshToken
+    /Users/zhenxingsun/Proj/Rme/rme/internal/logic/user/user.go:271
+2.  rme/internal/controller/user.(*ControllerV1).RefreshToken
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_refresh_token.go:21
+
+2024-05-18T20:08:13 [INFO] {b8af9573ea93d01796733d500177762b} user_v1_refresh_token.go:31: RefreshToken failed, need login, userid:363bea77-bc7d-4be0-81f5-27f0aafb748a
+2024-05-18T20:08:19 [DEBU] {304befbeeb93d01797733d5044cdb0dd} login_info.go:38: loginInfoRedisClient.Set success, key:rme_logininfo_363bea77-bc7d-4be0-81f5-27f0aafb748a
+2024-05-18T20:09:46 [DEBU] {102ac3120094d01798733d509960d21a} login_info.go:62: loginInfoRedisClient.Get success, key:rme_logininfo_363bea77-bc7d-4be0-81f5-27f0aafb748a, info:&{363bea77-bc7d-4be0-81f5-27f0aafb748a 37552eb7-69fb-4ffc-9342-0447a29e462e 2 JOgm2GQvcZfeWNwmA9pNP2DRRDK+hYqdFle8aqJRseEB+J6BZUKFqETZcO0UPtpB+RskBMolm+5J/RX57yMULRvihjylvokMajFZPTiBT7SUjOnj94Dpywc04WHHf/YB9M27GarBurbvBk1PWIFyms7clHYzdc3dgigrzOuXDYEVL/1MeXU6fGtPvw== JOgm2GQvcZfeWNwmA9pNP2DRRDK+hYqdFle8aqJRseEB+J6BZUKFqETZcO0UPtpB+RskBMolm+5J/RX57yMULRvihjylvokMajFZPT2DFbyQirO594TnyQs04WOSefYB8MnuGfGd67PhUBxKW9Yin87clHYzdc3dgigrjzo2dtDhxZ9oy3XJlWbSQg== 1716035899 1716070099 }
+2024-05-18T20:09:46 [DEBU] {102ac3120094d01798733d509960d21a} token.go:70: qqqqqqqqqqq1
+2024-05-18T20:09:46 [DEBU] {102ac3120094d01798733d509960d21a} token.go:77: qqqqqqqqqqq2
+2024-05-18T20:09:46 [DEBU] {102ac3120094d01798733d509960d21a} token.go:90: qqqqqqqqqqq3
+2024-05-18T20:09:46 [DEBU] {102ac3120094d01798733d509960d21a} token.go:97: qqqqqqqqqqq4
+2024-05-18T20:09:46 [DEBU] {102ac3120094d01798733d509960d21a} login_info.go:38: loginInfoRedisClient.Set success, key:rme_logininfo_363bea77-bc7d-4be0-81f5-27f0aafb748a

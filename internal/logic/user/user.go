@@ -121,15 +121,12 @@ func (s *sUser) Verify(ctx context.Context, userID, accessToken string) (valid b
 		return false, nil
 	}
 
-	g.Log().Debugf(ctx, "111111111")
 	// redis中读取必要信息
 	info, err := dao.NewLoginInfoRedisClient().Get(ctx, userID)
 	if err != nil {
 		g.Log().Errorf(ctx, "redis get error, err:%v", err)
 		return false, err
 	}
-
-	g.Log().Debugf(ctx, "22222222222")
 
 	// 校验必要的身份id和token
 	if info.UserId != userID || info.AccessToken != accessToken {
@@ -138,15 +135,12 @@ func (s *sUser) Verify(ctx context.Context, userID, accessToken string) (valid b
 		return false, nil
 	}
 
-	g.Log().Debugf(ctx, "33333333333333")
-
 	// 解析token，校验accessToken时效性和正确性
 	tokener := &Tokener{
 		Token:        accessToken,
 		UserSecretID: info.UserSecretId,
 	}
 	tokener.ParseToken(ctx)
-	g.Log().Debugf(ctx, "44444444444444")
 	nowts := time.Now().Unix()
 	if tokener.UserID != userID || tokener.UserSecretID != info.UserSecretId ||
 		tokener.TokenType != consts.TokenType_AccessToken ||
@@ -172,7 +166,7 @@ func (s *sUser) Login(ctx context.Context, loginType int, code string) (loginInf
 	}
 
 	// mock 代码
-	contact := "1234561111"
+	contact := "123456111331"
 	user, err := s.QueryUserByLw(ctx, int32(loginType), contact)
 	if err != nil {
 		g.Log().Errorf(ctx, "QueryUserByLw error, err:%v", err)
@@ -199,7 +193,7 @@ func (s *sUser) Login(ctx context.Context, loginType int, code string) (loginInf
 		loginInfo.LoginType = loginType
 	} else {
 		loginInfo.UserId = user.Userid
-		// loginInfo.UserSecretId = user. // TODO: mysql 用户信息表中，加上那个唯一的用户secretid
+		loginInfo.UserSecretId = user.Usersecretid
 		loginInfo.LoginType = loginType
 	}
 
@@ -241,9 +235,83 @@ func (s *sUser) Login(ctx context.Context, loginType int, code string) (loginInf
 	return loginInfo, nil
 }
 
-//func genTokens(ctx context.Context, loginInfo *model.LoginInfo)
-
 // RefreshToken 刷新登录态
 func (s *sUser) RefreshToken(ctx context.Context, userID, refreshToken string) (loginInfo *model.LoginInfo, err error) {
-	return nil, nil
+	// 频率等限制，ip限制等 TODO
+	// 校验refreshToken，看看是否过期，userid是否对应得上等
+	// 校验通过之后，生成新的token，原先的token作废
+
+	if userID == "" || refreshToken == "" {
+		g.Log().Errorf(ctx, "RefreshToken param error, userid:%s, refreshToken:%s", userID, refreshToken)
+		return nil, gerror.New("RefreshToken param error")
+	}
+
+	// 从redis中，先获取登陆态信息
+	redisLoginInfo, err := dao.NewLoginInfoRedisClient().Get(ctx, userID)
+	if err != nil {
+		g.Log().Errorf(ctx, "redis set error, err:%v", err)
+		return nil, err
+	}
+	if redisLoginInfo == nil { // 表明根本没有登录，或者早就过期了。提示需要重新登录
+		g.Log().Infof(ctx, "user need login, userid:%s", userID)
+		return nil, nil // 返回nil，需要重新登录
+	}
+
+	// 校验登陆态
+	refreshTokener := &Tokener{
+		UserSecretID: redisLoginInfo.UserSecretId,
+		Token:        redisLoginInfo.RefreshToken,
+	}
+	if err = refreshTokener.ParseToken(ctx); err != nil {
+		g.Log().Errorf(ctx, "GenerateToken error, refreshTokener:%v, err:%v", refreshTokener, err)
+		return nil, err
+	}
+	if refreshTokener.UserID != userID || refreshTokener.Token != refreshToken ||
+		refreshTokener.ExpireTime <= time.Now().Unix() {
+		g.Log().Errorf(ctx, "GenerateToken error, refreshToken is not usable, userid:%s, refreshToken:%s",
+			userID, refreshToken)
+		return nil, nil // 返回nil，需要重新登录
+	}
+
+	// 重新生成新的token
+	nowMs := time.Now().Unix()
+	tokenValidityPeriod, _ := g.Cfg().Get(ctx, "custom.token.token_validity_period")
+	refreshValidityPeriod, _ := g.Cfg().Get(ctx, "custom.token.refresh_validity_period")
+	loginInfo = &model.LoginInfo{
+		UserId:       userID,
+		UserSecretId: redisLoginInfo.UserSecretId,
+		LoginType:    redisLoginInfo.LoginType,
+	}
+	loginInfo.AccessTokenExpireTime = nowMs + tokenValidityPeriod.Int64()
+	loginInfo.RefreshTokenExpireTime = nowMs + refreshValidityPeriod.Int64()
+
+	// 生成accessToken和refreshToken
+	accessTokener := &Tokener{
+		UserID:       loginInfo.UserId,
+		UserSecretID: loginInfo.UserSecretId,
+		TokenType:    consts.TokenType_AccessToken,
+		ExpireTime:   loginInfo.AccessTokenExpireTime,
+	}
+	if err = accessTokener.GenerateToken(ctx); err != nil {
+		g.Log().Errorf(ctx, "GenerateToken error, accessTokener:%v, err:%v", accessTokener, err)
+	}
+	refreshTokener = &Tokener{
+		UserID:       loginInfo.UserId,
+		UserSecretID: loginInfo.UserSecretId,
+		TokenType:    consts.TokenType_AccessToken,
+		ExpireTime:   loginInfo.AccessTokenExpireTime,
+	}
+	if err = refreshTokener.GenerateToken(ctx); err != nil {
+		g.Log().Errorf(ctx, "GenerateToken error, accessTokener:%v, err:%v", accessTokener, err)
+	}
+	loginInfo.AccessToken = accessTokener.Token
+	loginInfo.RefreshToken = refreshTokener.Token
+
+	// 覆盖redis登陆态
+	if err = dao.NewLoginInfoRedisClient().Set(ctx, loginInfo); err != nil {
+		g.Log().Errorf(ctx, "redis set error, err:%v", err)
+		return nil, err
+	}
+
+	return loginInfo, nil
 }

@@ -18,7 +18,6 @@ func (c *ControllerV1) Verify(ctx context.Context, req *v1.VerifyReq) (res *v1.V
 	userID := g.RequestFromCtx(ctx).GetHeader(consts.HttpHeader_UserId)
 	accessToken := g.RequestFromCtx(ctx).GetHeader(consts.HttpHeader_AccessToken)
 
-	g.Log().Debug(ctx, "aaaaaaaaaaaa1111aaaaaa33")
 	valid, err := service.User().Verify(ctx, userID, accessToken)
 	if err != nil {
 		g.Log().Errorf(ctx, "Verify failed, userid:%s", userID)
@@ -27,7 +26,6 @@ func (c *ControllerV1) Verify(ctx context.Context, req *v1.VerifyReq) (res *v1.V
 		return
 	}
 
-	g.Log().Debug(ctx, "aaaaaaaaaaaa1111aaaaaa")
 	if !valid {
 		res.ErrCode = consts.ErrCode_NotLogin
 		res.ErrMsg = "未登陆或登陆态过期"
@@ -35,7 +33,5 @@ func (c *ControllerV1) Verify(ctx context.Context, req *v1.VerifyReq) (res *v1.V
 	}
 
 	res.ErrMsg = "登陆态校验通过"
-	g.Log().Debug(ctx, "aaaaaaaaaaaaaaaaaa")
-
 	return res, nil
 }
