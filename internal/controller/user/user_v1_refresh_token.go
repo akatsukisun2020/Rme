@@ -10,7 +10,7 @@ import (
 	"rme/internal/service"
 )
 
-// curl -H "Content-Type: application/json" -H "RmeUserid: 363bea77-bc7d-4be0-81f5-27f0aafb748a" -H "RmeRefreshToken: JOgm2GQvcZfeWNwmA9pNP2DRRDK+hYqdFle8aqJRseEB+J6BZUKFqETZcO0UPtpB+RskBMolm+5J/RX57yMULRvihjylvokMajFZPTGCQbzEj+bh99S9k1804WTCKvYA/87pGf7PvO+7A04aX9Vxyc7clHYzdc/ejyAmVg7kz4Pf35ryTWqmwlJfgQ==" -X POST  -d '{}' http://127.0.0.1:8000/user/refresh_token
+// curl -H "Content-Type: application/json" -H "RmeUserid: 363bea77-bc7d-4be0-81f5-27f0aafb748a" -H "RmeRefreshToken: JOgm2GQvcZfeWNwmA9pNP2DRRDK+hYqdFle8aqJRseEB+J6BZUKFqETZcO0UPtpB+RskBMolm+5J/RX57yMULRvihjylvokMajFZPT2DFbyQirO594TnyQs04WOSefYB8MnuGfGd67PhUBxKW9Yin87clHYzdc3dgigrjzo2dtDhxZ9oy3XJlWbSQg==" -X POST  -d '{}' http://127.0.0.1:8000/user/refresh_token
 
 // RefreshToken 登陆态过期的时候使用，用来刷新登陆态
 func (c *ControllerV1) RefreshToken(ctx context.Context, req *v1.RefreshTokenReq) (res *v1.RefreshTokenRes, err error) {

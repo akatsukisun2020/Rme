@@ -67,14 +67,12 @@ func (t *Tokener) ParseToken(ctx context.Context) error {
 		return fmt.Errorf("token parse error, err:%s", err.Error())
 	}
 
-	g.Log().Debugf(ctx, "qqqqqqqqqqq1")
 	appkey, _ := g.Cfg().Get(ctx, "custom.token.appkey")
 	// 创建AES加密块
 	block, err := aes.NewCipher([]byte(appkey.String()))
 	if err != nil {
 		return fmt.Errorf("token parse error, err[%s]", err.Error())
 	}
-	g.Log().Debugf(ctx, "qqqqqqqqqqq2")
 	// 创建GCM模式的加密器
 	aesGCM, err := cipher.NewGCM(block)
 	if err != nil {
@@ -87,14 +85,12 @@ func (t *Tokener) ParseToken(ctx context.Context) error {
 	}
 	nonce := nonceBytes[:aesGCM.NonceSize()]
 
-	g.Log().Debugf(ctx, "qqqqqqqqqqq3")
 	// 解密数据
 	decrypted, err := aesGCM.Open(nil, nonce, []byte(decodedBytes), nil)
 	if err != nil {
 		return fmt.Errorf("token parse error, err[%s]", err.Error())
 	}
 
-	g.Log().Debugf(ctx, "qqqqqqqqqqq4")
 	arrs := strings.Split(string(decrypted), "_")
 	if len(arrs) != 5 {
 		return fmt.Errorf("token parse error, token format error, decrypted:%s", string(decrypted))
