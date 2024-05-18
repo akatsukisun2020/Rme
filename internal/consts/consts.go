@@ -23,6 +23,7 @@ const ( // 返回码定义
 	ErrCode_Verify       = -100 // 登陆态校验失败
 	ErrCode_Login        = -101 // 登陆失败
 	ErrCode_RefreshToken = -102 // 登陆态校验失败
+	ErrCode_UpdateUser   = -103 // 更新用户信息失败
 
 	ErrCode_NotLogin  = 100 // 未登陆
 	ErrCode_NeedLogin = 101 // 需要登录

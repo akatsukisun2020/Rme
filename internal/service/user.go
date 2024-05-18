@@ -10,10 +10,10 @@ import (
 // IUser user接口
 type IUser interface {
 	// 资料管理相关接口
-	InsertOrUpdateUser(ctx context.Context, user *model.User) (err error)       // 增
-	RemoveUser(ctx context.Context, userID string) (err error)                  // 删
-	UpdateUser(ctx context.Context, user *model.User) (err error)               // 修
-	QueryUser(ctx context.Context, userID string) (res *entity.User, err error) // 查
+	InsertOrUpdateUser(ctx context.Context, user *model.User) (err error)          // 增
+	RemoveUser(ctx context.Context, userID string) (err error)                     // 删
+	UpdateUser(ctx context.Context, fields []string, user *model.User) (err error) // 修
+	QueryUser(ctx context.Context, userID string) (res *entity.User, err error)    // 查
 
 	// 登陆态管理相关接口
 	// redis操作/cookie操作/外部http协议访问

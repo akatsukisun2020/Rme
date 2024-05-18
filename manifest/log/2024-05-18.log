@@ -280,3 +280,15 @@ Stack:
 2024-05-18T20:09:46 [DEBU] {102ac3120094d01798733d509960d21a} token.go:90: qqqqqqqqqqq3
 2024-05-18T20:09:46 [DEBU] {102ac3120094d01798733d509960d21a} token.go:97: qqqqqqqqqqq4
 2024-05-18T20:09:46 [DEBU] {102ac3120094d01798733d509960d21a} login_info.go:38: loginInfoRedisClient.Set success, key:rme_logininfo_363bea77-bc7d-4be0-81f5-27f0aafb748a
+2024-05-18T21:03:04 [ERRO] {0004a6dee896d017547d380d7f61b09a} user.go:134: fields error, userid:41fc5a19-df59-4361-8865-65e6d55c721c, fileds:[nick_name head_url aa] 
+Stack:
+1.  rme/internal/logic/user.(*sUser).UpdateUser
+    /Users/zhenxingsun/Proj/Rme/rme/internal/logic/user/user.go:134
+2.  rme/internal/controller/user.(*ControllerV1).UpdateUser
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_update_user.go:33
+
+2024-05-18T21:03:04 [ERRO] {0004a6dee896d017547d380d7f61b09a} user_v1_update_user.go:34: UpdateUser error, euserid:41fc5a19-df59-4361-8865-65e6d55c721c, err:UpdateUser fields error 
+Stack:
+1.  rme/internal/controller/user.(*ControllerV1).UpdateUser
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_update_user.go:34
+

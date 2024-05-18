@@ -110,8 +110,38 @@ func (s *sUser) QueryUserByLw(ctx context.Context, loginType int32, contact stri
 }
 
 // UpdateUser 更新用户 能否指定字段进行更新（TODO）
-func (s *sUser) UpdateUser(ctx context.Context, user *model.User) (err error) {
-	// TODO
+func (s *sUser) UpdateUser(ctx context.Context, fields []string, user *model.User) (err error) {
+
+	if user.Userid == "" {
+		g.Log().Errorf(ctx, "UpdateUser param error, userid is empty, user:%v", user)
+		return gerror.New("UpdateUser param error")
+	}
+
+	doUser := do.User{
+		Userid: user.Userid,
+	}
+	for _, v := range fields {
+		switch v {
+		case "nick_name":
+			doUser.Nickname = user.Nickname
+		case "head_url":
+			doUser.Headurl = user.Headurl
+		case "age":
+			doUser.Age = user.Age
+		case "sex":
+			doUser.Sex = user.Sex
+		default:
+			g.Log().Errorf(ctx, "fields error, userid:%s, fileds:%v", user.Userid, fields)
+			return gerror.New("UpdateUser fields error")
+		}
+	}
+
+	_, err = dao.User.Ctx(ctx).Data(doUser).Where("userid", user.Userid).Update()
+	if err != nil {
+		g.Log().Errorf(ctx, "UpdateUser error, userid:%s, fileds:%v", user.Userid, fields)
+		return err
+	}
+
 	return nil
 }
 
