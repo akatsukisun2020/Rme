@@ -1,0 +1,30 @@
+2024-05-16T09:53:18 [DEBU] {804da10a33d5cf17d8b96c72dc93025c} loginInfoRedisClient.Set success, key:rme_logininfo_testnihao1314
+2024-05-16T09:53:18 [DEBU] {804da10a33d5cf17d8b96c72dc93025c} loginInfoRedisClient.Get success, key:rme_logininfo_testnihao1314, info:&{testnihao1314 lalafor test eryi 1   0 }
+2024-05-16T09:53:18 [INFO] {804da10a33d5cf17d8b96c72dc93025c} redis op success, info:&{testnihao1314 lalafor test eryi 1   0 }
+2024-05-16T09:56:45 [DEBU] {3053d14963d5cf17c7f81b4312d0f849} login_info.go:37: loginInfoRedisClient.Set success, key:rme_logininfo_testnihao1314
+2024-05-16T09:56:45 [DEBU] {3053d14963d5cf17c7f81b4312d0f849} login_info.go:56: loginInfoRedisClient.Get success, key:rme_logininfo_testnihao1314, info:&{testnihao1314 lalafor test eryi 1   0 }
+2024-05-16T09:56:45 [INFO] {3053d14963d5cf17c7f81b4312d0f849} user_v1_query_user.go:54: redis op success, info:&{testnihao1314 lalafor test eryi 1   0 }
+2024-05-16T10:00:03 [DEBU] {50b9596c91d5cf17df5a0828f07ca78b} login_info.go:37: loginInfoRedisClient.Set success, key:rme_logininfo_testnihao1314
+2024-05-16T10:00:03 [DEBU] {50b9596c91d5cf17df5a0828f07ca78b} login_info.go:56: loginInfoRedisClient.Get success, key:rme_logininfo_testnihao1314, info:&{testnihao1314 lalafor test eryi 1   0 }
+2024-05-16T10:00:03 [INFO] {50b9596c91d5cf17df5a0828f07ca78b} user_v1_query_user.go:54: redis op success, info:&{testnihao1314 lalafor test eryi 1   0 }
+2024-05-16T18:53:50 [DEBU] {4055c414b2f2cf17e7b24d089efc852c} login_info.go:37: loginInfoRedisClient.Set success, key:rme_logininfo_testnihao1314
+2024-05-16T18:53:50 [DEBU] {4055c414b2f2cf17e7b24d089efc852c} login_info.go:56: loginInfoRedisClient.Get success, key:rme_logininfo_testnihao1314, info:&{testnihao1314 lalafor test eryi 1   0 }
+2024-05-16T18:53:50 [INFO] {4055c414b2f2cf17e7b24d089efc852c} user_v1_query_user.go:59: redis op success, info:&{testnihao1314 lalafor test eryi 1   0 }
+2024-05-16T18:54:59 [ERRO] {28f98b3dc2f2cf1741efc42d146c1960} user.go:66: userid is emtpy 
+Stack:
+1.  rme/internal/logic/user.(*sUser).QueryUser
+    /Users/zhenxingsun/Proj/Rme/rme/internal/logic/user/user.go:66
+2.  rme/internal/controller/user.(*ControllerV1).QueryUser
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_query_user.go:25
+
+2024-05-16T18:55:17 [ERRO] {48925a89c6f2cf1742efc42d8efe19dc} user.go:66: userid is emtpy 
+Stack:
+1.  rme/internal/logic/user.(*sUser).QueryUser
+    /Users/zhenxingsun/Proj/Rme/rme/internal/logic/user/user.go:66
+2.  rme/internal/controller/user.(*ControllerV1).QueryUser
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_query_user.go:25
+
+2024-05-16T18:55:32 [DEBU] {b83332f7c9f2cf1743efc42dc91c1b5f} login_info.go:37: loginInfoRedisClient.Set success, key:rme_logininfo_testnihao1314
+2024-05-16T18:55:32 [DEBU] {b83332f7c9f2cf1743efc42dc91c1b5f} login_info.go:56: loginInfoRedisClient.Get success, key:rme_logininfo_testnihao1314, info:&{testnihao1314 lalafor test eryi 1   0 }
+2024-05-16T18:55:32 [INFO] {b83332f7c9f2cf1743efc42dc91c1b5f} user_v1_query_user.go:59: redis op success, info:&{testnihao1314 lalafor test eryi 1   0 }
+2024-05-16T20:28:46 [DEBU] {c0783478e0f7cf17fbdf354bb9118d5f} user_v1_query_user.go:43: lala: 1

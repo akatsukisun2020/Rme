@@ -6,6 +6,7 @@ import (
 	"rme/internal/model"
 
 	"github.com/gogf/gf/v2/database/gredis"
+	"github.com/gogf/gf/v2/errors/gerror"
 	"github.com/gogf/gf/v2/frame/g"
 )
 
@@ -45,6 +46,11 @@ func (cli *loginInfoRedisClient) Get(ctx context.Context, userID string) (*model
 	if err != nil {
 		g.Log().Errorf(ctx, "loginInfoRedisClient.Get error, key:%s, err:%v", key, err)
 		return nil, err
+	}
+
+	if value.IsEmpty() {
+		g.Log().Infof(ctx, "user is not existed, userID:%s", userID)
+		return nil, gerror.New("user is not existed")
 	}
 
 	info := new(model.LoginInfo)

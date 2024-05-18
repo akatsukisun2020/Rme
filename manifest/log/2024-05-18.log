@@ -1,0 +1,192 @@
+2024-05-18T12:34:35 [ERRO] {38f39f61297bd0175878b143900da64a} user.go:73: userid is emtpy 
+Stack:
+1.  rme/internal/logic/user.(*sUser).QueryUser
+    /Users/zhenxingsun/Proj/Rme/rme/internal/logic/user/user.go:73
+2.  rme/internal/controller/user.(*ControllerV1).QueryUser
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_query_user.go:21
+
+2024-05-18T12:34:35 [ERRO] {38f39f61297bd0175878b143900da64a} user_v1_query_user.go:23: service.QueryUser error, userid:, err:userid is empty 
+Stack:
+1.  rme/internal/controller/user.(*ControllerV1).QueryUser
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_query_user.go:23
+
+2024-05-18T12:38:37 [ERRO] {f019b4b8617bd0175978b143d34ff9af} user.go:73: userid is emtpy 
+Stack:
+1.  rme/internal/logic/user.(*sUser).QueryUser
+    /Users/zhenxingsun/Proj/Rme/rme/internal/logic/user/user.go:73
+2.  rme/internal/controller/user.(*ControllerV1).QueryUser
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_query_user.go:21
+
+2024-05-18T12:38:37 [ERRO] {f019b4b8617bd0175978b143d34ff9af} user_v1_query_user.go:23: service.QueryUser error, userid:, err:userid is empty 
+Stack:
+1.  rme/internal/controller/user.(*ControllerV1).QueryUser
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_query_user.go:23
+
+2024-05-18T12:39:19 [DEBU] {00775e746b7bd0175a78b143884b889a} user_v1_query_user.go:43: lala: 
+2024-05-18T12:40:05 [DEBU] {d07cd111767bd0175b78b143e2e072e8} user_v1_query_user.go:43: lala: 
+2024-05-18T12:44:55 [ERRO] {089e997ab97bd0175f78b1432a1ecd3f} login_info.go:52: loginInfoRedisClient.Unmarshal error, key:rme_logininfo_0384c046-b157-4c74-9f77-d0fb7f7e5675, err:unexpected end of JSON input 
+Stack:
+1.  rme/internal/dao.(*loginInfoRedisClient).Get
+    /Users/zhenxingsun/Proj/Rme/rme/internal/dao/login_info.go:52
+2.  rme/internal/logic/user.(*sUser).Verify
+    /Users/zhenxingsun/Proj/Rme/rme/internal/logic/user/user.go:125
+3.  rme/internal/controller/user.(*ControllerV1).Verify
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_verify.go:18
+
+2024-05-18T12:44:55 [ERRO] {089e997ab97bd0175f78b1432a1ecd3f} user.go:127: redis get error, err:unexpected end of JSON input 
+Stack:
+1.  rme/internal/logic/user.(*sUser).Verify
+    /Users/zhenxingsun/Proj/Rme/rme/internal/logic/user/user.go:127
+2.  rme/internal/controller/user.(*ControllerV1).Verify
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_verify.go:18
+
+2024-05-18T12:44:55 [ERRO] {089e997ab97bd0175f78b1432a1ecd3f} user_v1_verify.go:20: Verify failed, userid:0384c046-b157-4c74-9f77-d0fb7f7e5675 
+Stack:
+1.  rme/internal/controller/user.(*ControllerV1).Verify
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_verify.go:20
+
+2024-05-18T12:48:14 [INFO] {a04b7df0e77bd017a655fa460d115868} login_info.go:52: user is not existed, userID:0384c046-b157-4c74-9f77-d0fb7f7e5675
+2024-05-18T12:48:14 [ERRO] {a04b7df0e77bd017a655fa460d115868} user.go:127: redis get error, err:user is not existed 
+Stack:
+1.  rme/internal/logic/user.(*sUser).Verify
+    /Users/zhenxingsun/Proj/Rme/rme/internal/logic/user/user.go:127
+2.  rme/internal/controller/user.(*ControllerV1).Verify
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_verify.go:20
+
+2024-05-18T12:48:14 [ERRO] {a04b7df0e77bd017a655fa460d115868} user_v1_verify.go:22: Verify failed, userid:0384c046-b157-4c74-9f77-d0fb7f7e5675 
+Stack:
+1.  rme/internal/controller/user.(*ControllerV1).Verify
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_verify.go:22
+
+2024-05-18T12:50:16 [ERRO] {e8377d5e047cd017a755fa4671c7d7a2} user.go:163: login param error, loginType:0, code: 
+Stack:
+1.  rme/internal/logic/user.(*sUser).Login
+    /Users/zhenxingsun/Proj/Rme/rme/internal/logic/user/user.go:163
+2.  rme/internal/controller/user.(*ControllerV1).Login
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_login.go:15
+
+2024-05-18T12:50:16 [ERRO] {e8377d5e047cd017a755fa4671c7d7a2} user_v1_login.go:17: service.Login error, req:&{{} 0 }, err:login param error 
+Stack:
+1.  rme/internal/controller/user.(*ControllerV1).Login
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_login.go:17
+
+2024-05-18T12:50:39 [ERRO] {b81828ad097cd017a855fa46c4acad9d} user.go:163: login param error, loginType:0, code: 
+Stack:
+1.  rme/internal/logic/user.(*sUser).Login
+    /Users/zhenxingsun/Proj/Rme/rme/internal/logic/user/user.go:163
+2.  rme/internal/controller/user.(*ControllerV1).Login
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_login.go:15
+
+2024-05-18T12:50:39 [ERRO] {b81828ad097cd017a855fa46c4acad9d} user_v1_login.go:17: service.Login error, req:&{{} 0 }, err:login param error 
+Stack:
+1.  rme/internal/controller/user.(*ControllerV1).Login
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_login.go:17
+
+2024-05-18T12:53:10 [ERRO] {686f6e002d7cd017a955fa46145561ed} user.go:163: login param error, loginType:0, code: 
+Stack:
+1.  rme/internal/logic/user.(*sUser).Login
+    /Users/zhenxingsun/Proj/Rme/rme/internal/logic/user/user.go:163
+2.  rme/internal/controller/user.(*ControllerV1).Login
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_login.go:15
+
+2024-05-18T12:53:10 [ERRO] {686f6e002d7cd017a955fa46145561ed} user_v1_login.go:17: service.Login error, req:&{{} 0 }, err:login param error 
+Stack:
+1.  rme/internal/controller/user.(*ControllerV1).Login
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_login.go:17
+
+2024-05-18T12:53:41 [ERRO] {70946322347cd017a1bd187e7a1516ff} user.go:163: login param error, loginType:0, code: 
+Stack:
+1.  rme/internal/logic/user.(*sUser).Login
+    /Users/zhenxingsun/Proj/Rme/rme/internal/logic/user/user.go:163
+2.  rme/internal/controller/user.(*ControllerV1).Login
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_login.go:17
+
+2024-05-18T12:53:41 [ERRO] {70946322347cd017a1bd187e7a1516ff} user_v1_login.go:19: service.Login error, req:&{{} 0 }, err:login param error 
+Stack:
+1.  rme/internal/controller/user.(*ControllerV1).Login
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_login.go:19
+
+2024-05-18T12:55:07 [DEBU] {a086e9fc477cd017a2bd187e7e902e04} login_info.go:38: loginInfoRedisClient.Set success, key:rme_logininfo_0384c046-b157-4c74-9f77-d0fb7f7e5675
+2024-05-18T12:57:01 [DEBU] {68753995627cd017a3bd187e471f3978} login_info.go:38: loginInfoRedisClient.Set success, key:rme_logininfo_0384c046-b157-4c74-9f77-d0fb7f7e5675
+2024-05-18T13:00:01 [ERRO] {e8e1b5848c7cd01798ae5056d76b6850} user.go:213: GenerateToken error, accessTokener:&{0384c046-b157-4c74-9f77-d0fb7f7e5675  0  1716010201}, err:token gen error, userid or user secretid is empty 
+Stack:
+1.  rme/internal/logic/user.(*sUser).Login
+    /Users/zhenxingsun/Proj/Rme/rme/internal/logic/user/user.go:213
+2.  rme/internal/controller/user.(*ControllerV1).Login
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_login.go:17
+
+2024-05-18T13:00:01 [ERRO] {e8e1b5848c7cd01798ae5056d76b6850} user.go:223: GenerateToken error, accessTokener:&{0384c046-b157-4c74-9f77-d0fb7f7e5675  0  1716010201}, err:token gen error, userid or user secretid is empty 
+Stack:
+1.  rme/internal/logic/user.(*sUser).Login
+    /Users/zhenxingsun/Proj/Rme/rme/internal/logic/user/user.go:223
+2.  rme/internal/controller/user.(*ControllerV1).Login
+    /Users/zhenxingsun/Proj/Rme/rme/internal/controller/user/user_v1_login.go:17
+
+2024-05-18T13:00:01 [DEBU] {e8e1b5848c7cd01798ae5056d76b6850} login_info.go:38: loginInfoRedisClient.Set success, key:rme_logininfo_0384c046-b157-4c74-9f77-d0fb7f7e5675
+2024-05-18T13:01:27 [INFO] {e8aa4b76a07cd0171e596e046a25fe07} user.go:48: InsertOrUpdateUser success, user:&{86a788e7-7dbf-4c00-a8a6-4e1c0eb23201 0 0   12345611  2b7a2575-187b-4437-be2f-5ae695efa9e1}, res:&{{0x14000570000 0x140000f0670} 1}
+2024-05-18T13:01:27 [DEBU] {e8aa4b76a07cd0171e596e046a25fe07} login_info.go:38: loginInfoRedisClient.Set success, key:rme_logininfo_86a788e7-7dbf-4c00-a8a6-4e1c0eb23201
+2024-05-18T13:04:47 [INFO] {98c1591dcf7cd01713fd1c71ea8256f8} user.go:48: InsertOrUpdateUser success, user:&{f7a658be-9dc2-4ef3-a129-a72268550f92 0 0   1234561111  f4f3e2de-0211-45b0-ba92-0d6061c14047}, res:&{{0x14000400000 0x140003d8d90} 1}
+2024-05-18T13:04:47 [DEBU] {98c1591dcf7cd01713fd1c71ea8256f8} login_info.go:38: loginInfoRedisClient.Set success, key:rme_logininfo_f7a658be-9dc2-4ef3-a129-a72268550f92
+2024-05-18T13:10:35 [DEBU] {68d7e621207dd01736621a098eb66c08} login_info.go:62: loginInfoRedisClient.Get success, key:rme_logininfo_f7a658be-9dc2-4ef3-a129-a72268550f92, info:&{f7a658be-9dc2-4ef3-a129-a72268550f92 f4f3e2de-0211-45b0-ba92-0d6061c14047 2 yY4Nu2VRtdNincfFN8BhbRmDwGYm2rtnM5Z4yBfe0ozf3XwlJplrdqpK5x0BRxHbcCybMidn9+jcsih0Sq4ieCf/IorBW0NaBLaXBXuX3aRn5IUCEf9qtiYXacfxMTF65TK3e27bxwn3dotN/p+hTD9PAyMi/79SGHEMxfEAt3J2+E1+Jk2KgLg32g== yY4Nu2VRtdNincfFN8BhbRmDwGYm2rtnM5Z4yBfe0ozf3XwlJplrdqpK5x0BRxHbcCybMidn9+jcsih0Sq4ieCf/IorBW0NaBLaXBS3C2vJk7I0BEaFk4nAXaZD1ajEjuWbnez6IkQ6ge4hA/8ypQz9PAyMi/79SGHEM5/N1EA52piay2mqHuxElwQ== 1716010487 1716044687 }
+2024-05-18T13:11:07 [DEBU] {80ecd19d277dd01737621a09a871cb7e} login_info.go:62: loginInfoRedisClient.Get success, key:rme_logininfo_f7a658be-9dc2-4ef3-a129-a72268550f92, info:&{f7a658be-9dc2-4ef3-a129-a72268550f92 f4f3e2de-0211-45b0-ba92-0d6061c14047 2 yY4Nu2VRtdNincfFN8BhbRmDwGYm2rtnM5Z4yBfe0ozf3XwlJplrdqpK5x0BRxHbcCybMidn9+jcsih0Sq4ieCf/IorBW0NaBLaXBXuX3aRn5IUCEf9qtiYXacfxMTF65TK3e27bxwn3dotN/p+hTD9PAyMi/79SGHEMxfEAt3J2+E1+Jk2KgLg32g== yY4Nu2VRtdNincfFN8BhbRmDwGYm2rtnM5Z4yBfe0ozf3XwlJplrdqpK5x0BRxHbcCybMidn9+jcsih0Sq4ieCf/IorBW0NaBLaXBS3C2vJk7I0BEaFk4nAXaZD1ajEjuWbnez6IkQ6ge4hA/8ypQz9PAyMi/79SGHEM5/N1EA52piay2mqHuxElwQ== 1716010487 1716044687 }
+2024-05-18T13:11:36 [DEBU] {38274b622e7dd01738621a097db3d23b} login_info.go:62: loginInfoRedisClient.Get success, key:rme_logininfo_f7a658be-9dc2-4ef3-a129-a72268550f92, info:&{f7a658be-9dc2-4ef3-a129-a72268550f92 f4f3e2de-0211-45b0-ba92-0d6061c14047 2 yY4Nu2VRtdNincfFN8BhbRmDwGYm2rtnM5Z4yBfe0ozf3XwlJplrdqpK5x0BRxHbcCybMidn9+jcsih0Sq4ieCf/IorBW0NaBLaXBXuX3aRn5IUCEf9qtiYXacfxMTF65TK3e27bxwn3dotN/p+hTD9PAyMi/79SGHEMxfEAt3J2+E1+Jk2KgLg32g== yY4Nu2VRtdNincfFN8BhbRmDwGYm2rtnM5Z4yBfe0ozf3XwlJplrdqpK5x0BRxHbcCybMidn9+jcsih0Sq4ieCf/IorBW0NaBLaXBS3C2vJk7I0BEaFk4nAXaZD1ajEjuWbnez6IkQ6ge4hA/8ypQz9PAyMi/79SGHEM5/N1EA52piay2mqHuxElwQ== 1716010487 1716044687 }
+2024-05-18T13:13:32 [DEBU] {708a8283497dd0173e32b154dab4b74a} user.go:124: 111111111
+2024-05-18T13:13:32 [DEBU] {708a8283497dd0173e32b154dab4b74a} login_info.go:62: loginInfoRedisClient.Get success, key:rme_logininfo_f7a658be-9dc2-4ef3-a129-a72268550f92, info:&{f7a658be-9dc2-4ef3-a129-a72268550f92 f4f3e2de-0211-45b0-ba92-0d6061c14047 2 yY4Nu2VRtdNincfFN8BhbRmDwGYm2rtnM5Z4yBfe0ozf3XwlJplrdqpK5x0BRxHbcCybMidn9+jcsih0Sq4ieCf/IorBW0NaBLaXBXuX3aRn5IUCEf9qtiYXacfxMTF65TK3e27bxwn3dotN/p+hTD9PAyMi/79SGHEMxfEAt3J2+E1+Jk2KgLg32g== yY4Nu2VRtdNincfFN8BhbRmDwGYm2rtnM5Z4yBfe0ozf3XwlJplrdqpK5x0BRxHbcCybMidn9+jcsih0Sq4ieCf/IorBW0NaBLaXBS3C2vJk7I0BEaFk4nAXaZD1ajEjuWbnez6IkQ6ge4hA/8ypQz9PAyMi/79SGHEM5/N1EA52piay2mqHuxElwQ== 1716010487 1716044687 }
+2024-05-18T13:13:32 [DEBU] {708a8283497dd0173e32b154dab4b74a} user.go:132: 22222222222
+2024-05-18T13:14:29 [DEBU] {5847d3a3567dd017b48482515ff102b6} user.go:124: 111111111
+2024-05-18T13:14:29 [DEBU] {5847d3a3567dd017b48482515ff102b6} login_info.go:62: loginInfoRedisClient.Get success, key:rme_logininfo_f7a658be-9dc2-4ef3-a129-a72268550f92, info:&{f7a658be-9dc2-4ef3-a129-a72268550f92 f4f3e2de-0211-45b0-ba92-0d6061c14047 2 yY4Nu2VRtdNincfFN8BhbRmDwGYm2rtnM5Z4yBfe0ozf3XwlJplrdqpK5x0BRxHbcCybMidn9+jcsih0Sq4ieCf/IorBW0NaBLaXBXuX3aRn5IUCEf9qtiYXacfxMTF65TK3e27bxwn3dotN/p+hTD9PAyMi/79SGHEMxfEAt3J2+E1+Jk2KgLg32g== yY4Nu2VRtdNincfFN8BhbRmDwGYm2rtnM5Z4yBfe0ozf3XwlJplrdqpK5x0BRxHbcCybMidn9+jcsih0Sq4ieCf/IorBW0NaBLaXBS3C2vJk7I0BEaFk4nAXaZD1ajEjuWbnez6IkQ6ge4hA/8ypQz9PAyMi/79SGHEM5/N1EA52piay2mqHuxElwQ== 1716010487 1716044687 }
+2024-05-18T13:14:29 [DEBU] {5847d3a3567dd017b48482515ff102b6} user.go:132: 22222222222
+2024-05-18T13:15:11 [DEBU] {608eb892607dd017539b4020b2c21709} user_v1_verify.go:21: aaaaaaaaaaaa1111aaaaaa33
+2024-05-18T13:15:11 [DEBU] {608eb892607dd017539b4020b2c21709} user.go:124: 111111111
+2024-05-18T13:15:11 [DEBU] {608eb892607dd017539b4020b2c21709} login_info.go:62: loginInfoRedisClient.Get success, key:rme_logininfo_f7a658be-9dc2-4ef3-a129-a72268550f92, info:&{f7a658be-9dc2-4ef3-a129-a72268550f92 f4f3e2de-0211-45b0-ba92-0d6061c14047 2 yY4Nu2VRtdNincfFN8BhbRmDwGYm2rtnM5Z4yBfe0ozf3XwlJplrdqpK5x0BRxHbcCybMidn9+jcsih0Sq4ieCf/IorBW0NaBLaXBXuX3aRn5IUCEf9qtiYXacfxMTF65TK3e27bxwn3dotN/p+hTD9PAyMi/79SGHEMxfEAt3J2+E1+Jk2KgLg32g== yY4Nu2VRtdNincfFN8BhbRmDwGYm2rtnM5Z4yBfe0ozf3XwlJplrdqpK5x0BRxHbcCybMidn9+jcsih0Sq4ieCf/IorBW0NaBLaXBS3C2vJk7I0BEaFk4nAXaZD1ajEjuWbnez6IkQ6ge4hA/8ypQz9PAyMi/79SGHEM5/N1EA52piay2mqHuxElwQ== 1716010487 1716044687 }
+2024-05-18T13:15:11 [DEBU] {608eb892607dd017539b4020b2c21709} user.go:132: 22222222222
+2024-05-18T13:37:54 [DEBU] {e810b0e89d7ed0174a0e077e4aa19ee5} user_v1_verify.go:21: aaaaaaaaaaaa1111aaaaaa33
+2024-05-18T13:37:54 [DEBU] {e810b0e89d7ed0174a0e077e4aa19ee5} user.go:124: 111111111
+2024-05-18T13:37:54 [DEBU] {e810b0e89d7ed0174a0e077e4aa19ee5} login_info.go:62: loginInfoRedisClient.Get success, key:rme_logininfo_f7a658be-9dc2-4ef3-a129-a72268550f92, info:&{f7a658be-9dc2-4ef3-a129-a72268550f92 f4f3e2de-0211-45b0-ba92-0d6061c14047 2 yY4Nu2VRtdNincfFN8BhbRmDwGYm2rtnM5Z4yBfe0ozf3XwlJplrdqpK5x0BRxHbcCybMidn9+jcsih0Sq4ieCf/IorBW0NaBLaXBXuX3aRn5IUCEf9qtiYXacfxMTF65TK3e27bxwn3dotN/p+hTD9PAyMi/79SGHEMxfEAt3J2+E1+Jk2KgLg32g== yY4Nu2VRtdNincfFN8BhbRmDwGYm2rtnM5Z4yBfe0ozf3XwlJplrdqpK5x0BRxHbcCybMidn9+jcsih0Sq4ieCf/IorBW0NaBLaXBS3C2vJk7I0BEaFk4nAXaZD1ajEjuWbnez6IkQ6ge4hA/8ypQz9PAyMi/79SGHEM5/N1EA52piay2mqHuxElwQ== 1716010487 1716044687 }
+2024-05-18T13:37:54 [DEBU] {e810b0e89d7ed0174a0e077e4aa19ee5} user.go:132: 22222222222
+2024-05-18T13:37:54 [DEBU] {e810b0e89d7ed0174a0e077e4aa19ee5} user.go:141: 33333333333333
+2024-05-18T13:38:38 [DEBU] {38b7c937a87ed01706b1e2450abfa412} user_v1_verify.go:21: aaaaaaaaaaaa1111aaaaaa33
+2024-05-18T13:38:38 [DEBU] {38b7c937a87ed01706b1e2450abfa412} user.go:124: 111111111
+2024-05-18T13:38:39 [DEBU] {38b7c937a87ed01706b1e2450abfa412} login_info.go:62: loginInfoRedisClient.Get success, key:rme_logininfo_f7a658be-9dc2-4ef3-a129-a72268550f92, info:&{f7a658be-9dc2-4ef3-a129-a72268550f92 f4f3e2de-0211-45b0-ba92-0d6061c14047 2 yY4Nu2VRtdNincfFN8BhbRmDwGYm2rtnM5Z4yBfe0ozf3XwlJplrdqpK5x0BRxHbcCybMidn9+jcsih0Sq4ieCf/IorBW0NaBLaXBXuX3aRn5IUCEf9qtiYXacfxMTF65TK3e27bxwn3dotN/p+hTD9PAyMi/79SGHEMxfEAt3J2+E1+Jk2KgLg32g== yY4Nu2VRtdNincfFN8BhbRmDwGYm2rtnM5Z4yBfe0ozf3XwlJplrdqpK5x0BRxHbcCybMidn9+jcsih0Sq4ieCf/IorBW0NaBLaXBS3C2vJk7I0BEaFk4nAXaZD1ajEjuWbnez6IkQ6ge4hA/8ypQz9PAyMi/79SGHEM5/N1EA52piay2mqHuxElwQ== 1716010487 1716044687 }
+2024-05-18T13:38:39 [DEBU] {38b7c937a87ed01706b1e2450abfa412} user.go:132: 22222222222
+2024-05-18T13:38:39 [DEBU] {38b7c937a87ed01706b1e2450abfa412} user.go:141: 33333333333333
+2024-05-18T13:39:53 [DEBU] {38f96287b97ed01700c3a4702380fe40} user_v1_verify.go:21: aaaaaaaaaaaa1111aaaaaa33
+2024-05-18T13:39:53 [DEBU] {38f96287b97ed01700c3a4702380fe40} user.go:124: 111111111
+2024-05-18T13:39:53 [DEBU] {38f96287b97ed01700c3a4702380fe40} login_info.go:62: loginInfoRedisClient.Get success, key:rme_logininfo_f7a658be-9dc2-4ef3-a129-a72268550f92, info:&{f7a658be-9dc2-4ef3-a129-a72268550f92 f4f3e2de-0211-45b0-ba92-0d6061c14047 2 yY4Nu2VRtdNincfFN8BhbRmDwGYm2rtnM5Z4yBfe0ozf3XwlJplrdqpK5x0BRxHbcCybMidn9+jcsih0Sq4ieCf/IorBW0NaBLaXBXuX3aRn5IUCEf9qtiYXacfxMTF65TK3e27bxwn3dotN/p+hTD9PAyMi/79SGHEMxfEAt3J2+E1+Jk2KgLg32g== yY4Nu2VRtdNincfFN8BhbRmDwGYm2rtnM5Z4yBfe0ozf3XwlJplrdqpK5x0BRxHbcCybMidn9+jcsih0Sq4ieCf/IorBW0NaBLaXBS3C2vJk7I0BEaFk4nAXaZD1ajEjuWbnez6IkQ6ge4hA/8ypQz9PAyMi/79SGHEM5/N1EA52piay2mqHuxElwQ== 1716010487 1716044687 }
+2024-05-18T13:39:53 [DEBU] {38f96287b97ed01700c3a4702380fe40} user.go:132: 22222222222
+2024-05-18T13:39:53 [DEBU] {38f96287b97ed01700c3a4702380fe40} user.go:141: 33333333333333
+2024-05-18T13:39:53 [DEBU] {38f96287b97ed01700c3a4702380fe40} token.go:70: qqqqqqqqqqq1
+2024-05-18T13:39:53 [DEBU] {38f96287b97ed01700c3a4702380fe40} token.go:77: qqqqqqqqqqq2
+2024-05-18T13:41:32 [DEBU] {200106bad07ed017f80f50080edf3fd4} user_v1_verify.go:21: aaaaaaaaaaaa1111aaaaaa33
+2024-05-18T13:41:32 [DEBU] {200106bad07ed017f80f50080edf3fd4} user.go:124: 111111111
+2024-05-18T13:41:33 [DEBU] {200106bad07ed017f80f50080edf3fd4} login_info.go:62: loginInfoRedisClient.Get success, key:rme_logininfo_f7a658be-9dc2-4ef3-a129-a72268550f92, info:&{f7a658be-9dc2-4ef3-a129-a72268550f92 f4f3e2de-0211-45b0-ba92-0d6061c14047 2 yY4Nu2VRtdNincfFN8BhbRmDwGYm2rtnM5Z4yBfe0ozf3XwlJplrdqpK5x0BRxHbcCybMidn9+jcsih0Sq4ieCf/IorBW0NaBLaXBXuX3aRn5IUCEf9qtiYXacfxMTF65TK3e27bxwn3dotN/p+hTD9PAyMi/79SGHEMxfEAt3J2+E1+Jk2KgLg32g== yY4Nu2VRtdNincfFN8BhbRmDwGYm2rtnM5Z4yBfe0ozf3XwlJplrdqpK5x0BRxHbcCybMidn9+jcsih0Sq4ieCf/IorBW0NaBLaXBS3C2vJk7I0BEaFk4nAXaZD1ajEjuWbnez6IkQ6ge4hA/8ypQz9PAyMi/79SGHEM5/N1EA52piay2mqHuxElwQ== 1716010487 1716044687 }
+2024-05-18T13:41:33 [DEBU] {200106bad07ed017f80f50080edf3fd4} user.go:132: 22222222222
+2024-05-18T13:41:33 [DEBU] {200106bad07ed017f80f50080edf3fd4} user.go:141: 33333333333333
+2024-05-18T13:41:33 [DEBU] {200106bad07ed017f80f50080edf3fd4} token.go:70: qqqqqqqqqqq1
+2024-05-18T13:41:33 [DEBU] {200106bad07ed017f80f50080edf3fd4} token.go:77: qqqqqqqqqqq2
+2024-05-18T13:55:56 [INFO] {f0b82e95997fd01754c705072f60f14e} user.go:48: InsertOrUpdateUser success, user:&{41fc5a19-df59-4361-8865-65e6d55c721c 0 0   1234561111  5f34304f-041f-441e-b327-662b2a29a157}, res:&{{0x14000268480 0x140002b0000} 1}
+2024-05-18T13:55:56 [DEBU] {f0b82e95997fd01754c705072f60f14e} login_info.go:38: loginInfoRedisClient.Set success, key:rme_logininfo_41fc5a19-df59-4361-8865-65e6d55c721c
+2024-05-18T13:57:12 [DEBU] {a8d77c95ab7fd01755c7050781127d58} user_v1_verify.go:21: aaaaaaaaaaaa1111aaaaaa33
+2024-05-18T13:57:12 [DEBU] {a8d77c95ab7fd01755c7050781127d58} user.go:124: 111111111
+2024-05-18T13:57:12 [DEBU] {a8d77c95ab7fd01755c7050781127d58} login_info.go:62: loginInfoRedisClient.Get success, key:rme_logininfo_41fc5a19-df59-4361-8865-65e6d55c721c, info:&{41fc5a19-df59-4361-8865-65e6d55c721c 5f34304f-041f-441e-b327-662b2a29a157 2 8Pn2Pm1k1Ah5eqQJQpcKtw+1xvz4DdNO/2Fp71xzbBzNn6gFyWAdDZzLLiIYVVk+d1ioFRqj+a9s6X6WNpvPiv6pTV+Lxis3Smzzw7c+mPj1zDaDi7QdIbFs+ywkcwiNopmYlH4WuyMASv251QhvISCmj4c2DopHjDfLzwpO9fvrM0lXmE9S82Ieag== 8Pn2Pm1k1Ah5eqQJQpcKtw+1xvz4DdNO/2Fp71xzbBzNn6gFyWAdDZzLLiIYVVk+d1ioFRqj+a9s6X6WNpvPiv6pTV+Lxis3Smzzw7FqyPmlzDCDi7QYK7Bs+3IlIwjV8JuflHoV7HAARKrp2lRsICCmj4c2DopHjDfLlju981PCtuuSBo7mprRGQw== 1716013556 1716047756 }
+2024-05-18T13:57:12 [DEBU] {a8d77c95ab7fd01755c7050781127d58} user.go:132: 22222222222
+2024-05-18T13:57:12 [DEBU] {a8d77c95ab7fd01755c7050781127d58} user.go:141: 33333333333333
+2024-05-18T13:57:12 [DEBU] {a8d77c95ab7fd01755c7050781127d58} token.go:70: qqqqqqqqqqq1
+2024-05-18T13:57:12 [DEBU] {a8d77c95ab7fd01755c7050781127d58} token.go:77: qqqqqqqqqqq2
+2024-05-18T13:57:12 [DEBU] {a8d77c95ab7fd01755c7050781127d58} token.go:90: qqqqqqqqqqq3
+2024-05-18T13:57:12 [DEBU] {a8d77c95ab7fd01755c7050781127d58} token.go:97: qqqqqqqqqqq4
+2024-05-18T13:57:12 [DEBU] {a8d77c95ab7fd01755c7050781127d58} user.go:149: 44444444444444
+2024-05-18T13:57:12 [DEBU] {a8d77c95ab7fd01755c7050781127d58} user_v1_verify.go:30: aaaaaaaaaaaa1111aaaaaa
+2024-05-18T13:57:12 [DEBU] {a8d77c95ab7fd01755c7050781127d58} user_v1_verify.go:37: aaaaaaaaaaaaaaaaaa
+2024-05-18T13:58:00 [DEBU] {905c90aab67fd01738ef0b46479f8a99} user_v1_verify.go:21: aaaaaaaaaaaa1111aaaaaa33
+2024-05-18T13:58:00 [DEBU] {905c90aab67fd01738ef0b46479f8a99} user.go:124: 111111111
+2024-05-18T13:58:00 [DEBU] {905c90aab67fd01738ef0b46479f8a99} login_info.go:62: loginInfoRedisClient.Get success, key:rme_logininfo_41fc5a19-df59-4361-8865-65e6d55c721c, info:&{41fc5a19-df59-4361-8865-65e6d55c721c 5f34304f-041f-441e-b327-662b2a29a157 2 8Pn2Pm1k1Ah5eqQJQpcKtw+1xvz4DdNO/2Fp71xzbBzNn6gFyWAdDZzLLiIYVVk+d1ioFRqj+a9s6X6WNpvPiv6pTV+Lxis3Smzzw7c+mPj1zDaDi7QdIbFs+ywkcwiNopmYlH4WuyMASv251QhvISCmj4c2DopHjDfLzwpO9fvrM0lXmE9S82Ieag== 8Pn2Pm1k1Ah5eqQJQpcKtw+1xvz4DdNO/2Fp71xzbBzNn6gFyWAdDZzLLiIYVVk+d1ioFRqj+a9s6X6WNpvPiv6pTV+Lxis3Smzzw7FqyPmlzDCDi7QYK7Bs+3IlIwjV8JuflHoV7HAARKrp2lRsICCmj4c2DopHjDfLlju981PCtuuSBo7mprRGQw== 1716013556 1716047756 }
+2024-05-18T13:58:00 [DEBU] {905c90aab67fd01738ef0b46479f8a99} user.go:132: 22222222222
+2024-05-18T13:58:00 [DEBU] {905c90aab67fd01738ef0b46479f8a99} user.go:141: 33333333333333
+2024-05-18T13:58:00 [DEBU] {905c90aab67fd01738ef0b46479f8a99} token.go:70: qqqqqqqqqqq1
+2024-05-18T13:58:00 [DEBU] {905c90aab67fd01738ef0b46479f8a99} token.go:77: qqqqqqqqqqq2
+2024-05-18T13:58:00 [DEBU] {905c90aab67fd01738ef0b46479f8a99} token.go:90: qqqqqqqqqqq3
+2024-05-18T13:58:00 [DEBU] {905c90aab67fd01738ef0b46479f8a99} token.go:97: qqqqqqqqqqq4
+2024-05-18T13:58:00 [DEBU] {905c90aab67fd01738ef0b46479f8a99} user.go:149: 44444444444444
+2024-05-18T13:58:00 [DEBU] {905c90aab67fd01738ef0b46479f8a99} user_v1_verify.go:30: aaaaaaaaaaaa1111aaaaaa
+2024-05-18T13:58:00 [DEBU] {905c90aab67fd01738ef0b46479f8a99} user_v1_verify.go:38: aaaaaaaaaaaaaaaaaa

@@ -20,7 +20,7 @@ type UserBasic struct {
 
 type QueryUserReq struct {
 	g.Meta `path:"/query_user" tags:"QueryUser" method:"get" summary:"查询用户信息"`
-	// UserID string `json:"user_id"`  // 从登陆态中取
+	// UserID string `json:"user_id"`  // 从登陆态中取 头部字段
 }
 
 type QueryUserRes struct {
@@ -44,22 +44,30 @@ type UpdateUserRes struct {
 
 type LoginReq struct {
 	g.Meta    `path:"/login" tags:"Login" method:"post" summary:"用户登陆"`
-	LoginType int32  `json:"login_type"` // 登陆方式, 0: wx登陆 1:手机号登陆
+	LoginType int32  `json:"login_type"` // 登陆方式, 1: wx登陆 2:手机号登陆
 	Code      string `json:"code"`       // 登陆码
 }
 
+type LoginInfo struct {
+	UserID                string `json:"user_id"` // 登陆成功后，返回的用户id
+	AccessToken           string `json:"access_token"`
+	AccessTokenExpireTime int64  `json:"access_token_epxire_time"` // token有效过期时间，端上需要在这个过期时间之前刷新token
+	RereshToken           string `json:"refresh_token"`
+}
+
 type LoginRes struct {
-	ErrCode int32  `json:"err_code"` // 错误码
-	ErrMsg  string `json:"err_msg"`  // 错误信息
+	ErrCode   int32     `json:"err_code"`   // 错误码
+	ErrMsg    string    `json:"err_msg"`    // 错误信息
+	LoginInfo LoginInfo `json:"login_info"` // 登陆信息
 }
 
-// Authorize: 用户认证，主要适用于鉴权，看看这个用户是否登陆了。（有一些接口是需要有登陆态的）
+// verify: 校验：主要适用于鉴权，看看这个用户是否登陆了。（有一些接口是需要有登陆态的）
 
-type AuthorizeReq struct {
-	g.Meta `path:"/authorize" tags:"Authorize" method:"post" summary:"用户认证"`
+type VerifyReq struct {
+	g.Meta `path:"/verify" tags:"Verify" method:"post" summary:"用户认证"`
 }
 
-type AuthorizeRes struct {
+type VerifyRes struct {
 	ErrCode int32  `json:"err_code"` // 错误码
 	ErrMsg  string `json:"err_msg"`  // 错误信息
 }
@@ -71,6 +79,7 @@ type RefreshTokenReq struct {
 }
 
 type RefreshTokenRes struct {
-	ErrCode int32  `json:"err_code"` // 错误码
-	ErrMsg  string `json:"err_msg"`  // 错误信息
+	ErrCode   int32     `json:"err_code"`   // 错误码
+	ErrMsg    string    `json:"err_msg"`    // 错误信息
+	LoginInfo LoginInfo `json:"login_info"` // 登陆信息
 }

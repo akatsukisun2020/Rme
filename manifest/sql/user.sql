@@ -2,6 +2,7 @@ CREATE TABLE `user`
 (
     `id`         int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
     `userid`     varchar(45) NOT NULL COMMENT '用户id',
+    `usersecretid`     varchar(45) NOT NULL COMMENT '用户密钥',
     `age`        int(10) unsigned NOT NULL DEFAULT 0 COMMENT '用户年纪',
     `sex`        int(10) unsigned NOT NULL DEFAULT 0 COMMENT '用户性别',
     `headurl`    varchar(45) NOT NULL DEFAULT "" COMMENT '用户头像',
@@ -16,6 +17,7 @@ CREATE TABLE `user`
     UNIQUE KEY (`userid`),
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 
 
